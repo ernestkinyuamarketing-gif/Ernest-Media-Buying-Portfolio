@@ -572,6 +572,196 @@ section { padding: 80px 0; }
 }
 .footer .small { color: rgba(255,255,255,0.55); margin-top: 4px; }
 
+/* Clickable service card variant (Google / Meta / Bing → case study pages) */
+.service-card--link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+.service-card--link::after {
+  /* corner accent bar that grows on hover */
+  content: "";
+  position: absolute; left: 0; bottom: 0;
+  height: 3px; width: 0;
+  background: var(--gold);
+  border-radius: 0 0 var(--radius) var(--radius);
+  transition: width 0.3s ease;
+}
+.service-card--link:hover { border-color: var(--gold); }
+.service-card--link:hover::after { width: 100%; }
+.service-card .service-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.01em;
+  transition: transform 0.25s ease;
+}
+.service-card--link:hover .service-link { transform: translateX(4px); }
+
+/* =============================================================================
+   CASE STUDY PAGES  (google-ads.html, meta-ads.html, bing-ads.html)
+   ============================================================================= */
+
+/* Back-to-main pill in nav */
+.nav-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--grey-light);
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.nav-back:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+/* Case study hero */
+.cs-hero {
+  position: relative;
+  padding: 80px 0 60px;
+  background:
+    radial-gradient(900px 500px at 15% -20%, rgba(245, 158, 11, 0.10), transparent 60%),
+    radial-gradient(800px 400px at 90% 20%, rgba(10, 25, 41, 0.05), transparent 60%),
+    var(--offwhite);
+  border-bottom: 1px solid var(--grey-light);
+}
+.cs-hero h1 { max-width: 780px; }
+.cs-hero .lede { font-size: 1.1rem; color: var(--grey); max-width: 640px; margin-bottom: 32px; }
+
+.cs-headline-metrics {
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-top: 8px;
+  max-width: 760px;
+}
+.cs-headline-metric {
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.cs-headline-metric .value {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--gold-dark);
+  font-weight: 700;
+  line-height: 1.1;
+  display: block;
+}
+.cs-headline-metric .label {
+  display: block; margin-top: 6px;
+  color: var(--grey); font-size: 0.85rem;
+}
+
+/* Case study cards (the meat of the page) */
+.cs-studies { background: var(--white); }
+.cs-card {
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin-bottom: 28px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.cs-card:hover { box-shadow: var(--shadow); border-color: transparent; }
+.cs-card:last-child { margin-bottom: 0; }
+
+.cs-card-head {
+  display: flex; gap: 20px; align-items: flex-start;
+  margin-bottom: 28px; padding-bottom: 24px;
+  border-bottom: 1px dashed var(--grey-light);
+}
+.cs-num {
+  flex: 0 0 auto;
+  font-family: var(--font-heading);
+  font-size: 2rem; font-weight: 700;
+  color: var(--gold);
+  background: var(--navy);
+  width: 64px; height: 64px;
+  border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.cs-card-head h2 { margin: 0 0 6px; font-size: clamp(1.2rem, 2.2vw, 1.55rem); }
+.cs-card-head .cs-meta {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--grey);
+  letter-spacing: 0.01em;
+}
+
+.cs-body { display: grid; gap: 28px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .cs-body { grid-template-columns: 1fr 1fr; } }
+
+.cs-block h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-dark);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.cs-block p { color: var(--text); font-size: 0.98rem; line-height: 1.7; margin: 0; }
+.cs-block ul { list-style: none; padding: 0; margin: 0; }
+.cs-block li {
+  position: relative; padding-left: 26px; margin-bottom: 12px;
+  color: var(--text); font-size: 0.96rem; line-height: 1.6;
+}
+.cs-block li::before {
+  content: ""; position: absolute; left: 0; top: 9px;
+  width: 14px; height: 2px; background: var(--gold); border-radius: 2px;
+}
+
+/* Results sub-section */
+.cs-results {
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px dashed var(--grey-light);
+}
+.cs-results h3 {
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--gold-dark); margin-bottom: 16px;
+  font-family: var(--font-heading); font-weight: 600;
+}
+.cs-result-grid {
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.cs-result {
+  background: var(--offwhite);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-align: left;
+}
+.cs-result .value {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  display: block;
+}
+.cs-result .label {
+  display: block; margin-top: 6px;
+  color: var(--grey); font-size: 0.82rem;
+}
+
+/* Optional screenshot under a case study */
+.cs-screenshot {
+  margin-top: 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--grey-light);
+}
+.cs-screenshot img { width: 100%; height: auto; display: block; }
+
+/* Closing CTA on case study pages */
+.cs-cta { background: var(--navy); color: var(--white); text-align: center; }
+.cs-cta h2 { color: var(--white); }
+.cs-cta p  { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 28px; }
+.cs-cta .btn-primary { box-shadow: 0 10px 30px rgba(245,158,11,0.45); }
+
 /* =============================================================================
    SCROLL REVEAL
    ============================================================================= */

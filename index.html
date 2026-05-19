@@ -278,12 +278,22 @@
             </article>`).join(""),
 
         "services.items": (items) =>
-          items.map(s => `
-            <article class="service-card">
+          items.map(s => {
+            const linkable = !!s.link;
+            const open  = linkable
+              ? `<a href="${escape(s.link)}" class="service-card service-card--link">`
+              : `<article class="service-card">`;
+            const close = linkable ? `</a>` : `</article>`;
+            const cta   = linkable
+              ? `<span class="service-link" aria-hidden="true">View case studies →</span>`
+              : "";
+            return `${open}
               <span class="icon" aria-hidden="true">${escape(s.icon)}</span>
               <h3>${escape(s.title)}</h3>
               <p>${escape(s.description)}</p>
-            </article>`).join(""),
+              ${cta}
+            ${close}`;
+          }).join(""),
 
         "methodology.steps": (steps) =>
           steps.map(s => `
