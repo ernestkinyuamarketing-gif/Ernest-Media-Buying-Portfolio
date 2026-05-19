@@ -11,7 +11,7 @@ const SITE_CONTENT = {
   meta: {
     title: "Ernest Mutwiri — Performance Media Buyer | Google, Meta & Bing Ads",
     description:
-      "Performance Media Buyer with 3+ years scaling e-commerce brands across Google, Meta, and Bing Ads. $2M+ in tracked revenue generated.",
+      "Performance Media Buyer with 3+ years scaling e-commerce and lead-generation brands across Google, Meta, and Bing Ads. $2M+ in tracked revenue and qualified leads delivered.",
     ogImage: "assets/og-image.jpg",
     siteUrl: "https://ernest-media-buying.netlify.app",
     author: "Ernest Mutwiri",
@@ -33,9 +33,9 @@ const SITE_CONTENT = {
   /* ---- HERO --------------------------------------------------------------- */
   hero: {
     eyebrow: "Performance Media Buyer · Nairobi, Kenya",
-    heading: "Scaling E-commerce Brands with Profitable Paid Ads",
+    heading: "Profitable Paid Media for E-commerce & Lead-Gen Brands",
     subheading:
-      "3+ years driving $2M+ in tracked revenue across Google, Meta & Bing Ads.",
+      "3+ years scaling Google, Meta & Bing Ads past **$100K/month** — **$2M+ in tracked revenue** and qualified leads delivered.",
     ctaPrimary:   { label: "View My Results", href: "#results" },
     ctaSecondary: { label: "Get In Touch",    href: "#contact" },
     profileImage: { src: "assets/profile.jpg", alt: "Ernest Mutwiri, Performance Media Buyer" },
@@ -53,15 +53,15 @@ const SITE_CONTENT = {
   about: {
     heading: "About Me",
     paragraphs: [
-      "I'm a results-driven Media Buyer based in Nairobi, Kenya, with 3+ years of hands-on experience scaling 6 to 8-figure e-commerce and direct-response brands. My specialty is making paid advertising profitable — combining data, consumer psychology, and disciplined testing to turn ad spend into predictable revenue.",
-      "I've managed monthly budgets exceeding **$100K** across Google Ads (Search, Shopping, Performance Max, YouTube, Display), Meta Ads (Facebook & Instagram), and Bing Ads — scaling one account from **$40K to $200K per month** while generating over **$2M in attributable sales**. I thrive in collaborative teams, take ownership of partner outcomes, and obsess over the metrics that move businesses forward.",
+      "I'm a results-driven Media Buyer based in Nairobi, Kenya, with **3+ years** of hands-on experience scaling **6 to 8-figure e-commerce and lead-generation brands**. My specialty is making paid advertising profitable across **Google, Meta, and Bing Ads** — combining data, consumer psychology, and disciplined testing to turn ad spend into predictable revenue and qualified pipeline.",
+      "I've managed monthly budgets exceeding **$100K** across **Google Ads** (Search, Shopping, Performance Max, YouTube, Display), **Meta Ads** (Facebook & Instagram), and **Bing Ads** — scaling one account from **$40K to $200K per month** while generating over **$2M in attributable revenue** and qualified leads across e-commerce and lead-gen partners. I thrive in collaborative teams, take ownership of partner outcomes, and obsess over the metrics that move businesses forward.",
     ],
   },
 
   /* ---- RESULTS / EXPERIENCE ---------------------------------------------- */
   results: {
     heading: "Results & Experience",
-    subheading: "Real numbers from real campaigns.",
+    subheading: "Real numbers from real campaigns across Google, Meta, and Bing Ads.",
     cards: [
       {
         company: "Red Rag Marketing",
@@ -112,7 +112,7 @@ const SITE_CONTENT = {
   /* ---- SERVICES ----------------------------------------------------------- */
   services: {
     heading: "What I Do",
-    subheading: "Full-funnel paid media management built around your margins.",
+    subheading: "Full-funnel paid media management across Google, Meta & Bing — built around your margins, ROAS targets, and lead-quality goals.",
     items: [
       {
         icon: "🎯",
@@ -153,7 +153,7 @@ const SITE_CONTENT = {
   /* ---- METHODOLOGY -------------------------------------------------------- */
   methodology: {
     heading: "How I Work",
-    subheading: "My approach to scaling paid media profitably.",
+    subheading: "My approach to scaling paid media profitably — whether the goal is e-commerce revenue or qualified leads.",
     steps: [
       {
         number: "01",
@@ -249,7 +249,7 @@ const SITE_CONTENT = {
   /* ---- CONTACT ------------------------------------------------------------ */
   contact: {
     heading: "Let's Work Together",
-    subheading: "Available for full-time media buying roles and freelance projects.",
+    subheading: "Available for full-time media buying roles and freelance projects across Google, Meta & Bing Ads — both e-commerce and lead generation.",
     email:    "ernestkinyua.marketing@gmail.com",
     phone:    "+254 720 262 499",
     location: "Nairobi, Kenya",
