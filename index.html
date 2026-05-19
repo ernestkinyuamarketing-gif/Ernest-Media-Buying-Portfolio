@@ -129,6 +129,18 @@
       </div>
     </section>
 
+    <!-- ==================== PRODUCTS I'VE BUILT ==================== -->
+    <section class="apps" id="apps">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Built by me</span>
+          <h2 data-content="apps.heading"></h2>
+          <p class="subheading" data-content="apps.subheading"></p>
+        </div>
+        <div class="apps-grid reveal" data-content="apps.items"></div>
+      </div>
+    </section>
+
     <!-- ==================== CERTIFICATIONS ==================== -->
     <section class="certifications" id="certifications">
       <div class="container">
@@ -301,6 +313,27 @@
 
         "tools.items": (items) =>
           items.map(t => `<span class="tool-chip">${escape(t)}</span>`).join(""),
+
+        "apps.items": (items) =>
+          items.map(a => `
+            <article class="app-card">
+              <a class="app-screenshot" href="${escape(a.url)}" target="_blank" rel="noopener" aria-label="Open ${escape(a.name)} live demo">
+                <img src="${escape(a.screenshot)}" alt="${escape(a.name)} dashboard screenshot" loading="lazy" />
+                <span class="app-screenshot__hint" aria-hidden="true">Open live →</span>
+              </a>
+              <div class="app-body">
+                <header class="app-head">
+                  <h3>${escape(a.name)}</h3>
+                  <span class="app-tagline">${escape(a.tagline)}</span>
+                </header>
+                <p class="app-desc">${fmt(escape(a.description))}</p>
+                <p class="app-audience"><strong>Built for:</strong> ${escape(a.audience)}</p>
+                <ul class="app-features">
+                  ${a.features.map(f => `<li>${fmt(escape(f))}</li>`).join("")}
+                </ul>
+                <a class="btn btn-primary app-cta" href="${escape(a.url)}" target="_blank" rel="noopener">${escape(a.ctaLabel)}</a>
+              </div>
+            </article>`).join(""),
       };
 
       // Bind all data-content placeholders

@@ -24,6 +24,7 @@ const SITE_CONTENT = {
       { label: "About",          href: "#about" },
       { label: "Results",        href: "#results" },
       { label: "Services",       href: "#services" },
+      { label: "Products",       href: "#apps" },
       { label: "Certifications", href: "#certifications" },
       { label: "Contact",        href: "#contact" },
     ],
@@ -173,6 +174,42 @@ const SITE_CONTENT = {
         number: "04",
         title: "Scale & Report",
         description: "Disciplined budget scaling with transparent weekly reporting.",
+      },
+    ],
+  },
+
+  /* ---- APPS / PRODUCTS I'VE BUILT ---------------------------------------- */
+  apps: {
+    heading: "Products I've Built",
+    subheading: "Tools I built to streamline my own media buying workflow — both are live and clickable.",
+    items: [
+      {
+        name:        "AdPilot OS",
+        tagline:     "Media Buyer Suite",
+        screenshot:  "assets/apps/adpilot.jpg",
+        url:         "https://ad-pilot-os.vercel.app/dashboard",
+        description: "A media buyer's command center that unifies Meta and Google Ads campaign planning, AI copy generation, audio transcription, and campaign monitoring in one workspace.",
+        audience:    "Solo media buyers and small agency teams running both Meta and Google Ads.",
+        features: [
+          "**Multi-platform campaign planning** — Meta Generator, Google Campaign Planner (Search / PMAX / Demand Gen with CSV export), and Audience Pack builder.",
+          "**AI-powered creative tools** — audio-to-ad-copy via Whisper, A/B variant rewrites, persona builder, and policy checker for Meta and Google violations.",
+          "**Live campaign monitoring** — Meta and Google monitors with AI insights, budget pacing alerts, and Slack webhook notifications.",
+        ],
+        ctaLabel: "Try live demo →",
+      },
+      {
+        name:        "The Meridian",
+        tagline:     "Multi-Platform Media Hub",
+        screenshot:  "assets/apps/meridian.jpg",
+        url:         "https://ads-dashboard-rho.vercel.app/login",
+        description: "A multi-account Google Ads and Meta Ads reporting dashboard that gives agencies a live MCC-wide view of spend, conversions, and campaign performance across every client account.",
+        audience:    "Agencies and media buyers managing a portfolio of client accounts (MCC setup).",
+        features: [
+          "**Per-client spend cards + aggregated MCC totals** — total spend, impressions, clicks, conversions, average CPC, and budget pacing across all accounts in one view.",
+          "**Performance trend chart** with toggleable metrics (Spend, Clicks, Impressions, Conversions, CTR, CPC) over selectable date ranges.",
+          "**Campaign-level table** with sort/filter (active vs paused), 12 configurable columns, and search across all campaigns in the portfolio.",
+        ],
+        ctaLabel: "Try live demo →",
       },
     ],
   },
