@@ -200,7 +200,7 @@ const SITE_CONTENT = {
       {
         name:        "The Meridian",
         tagline:     "Multi-Platform Media Hub",
-        screenshot:  "assets/apps/meridian.jpg",
+        screenshot:  "assets/apps/meridian.png",
         url:         "https://ads-dashboard-rho.vercel.app/login",
         description: "A multi-account Google Ads and Meta Ads reporting dashboard that gives agencies a live MCC-wide view of spend, conversions, and campaign performance across every client account.",
         audience:    "Agencies and media buyers managing a portfolio of client accounts (MCC setup).",
