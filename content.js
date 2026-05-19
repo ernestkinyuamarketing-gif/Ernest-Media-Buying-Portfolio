@@ -21,12 +21,11 @@ const SITE_CONTENT = {
   nav: {
     brand: "Ernest Mutwiri",
     links: [
-      { label: "About",          href: "#about" },
-      { label: "Results",        href: "#results" },
-      { label: "Services",       href: "#services" },
-      { label: "Products",       href: "#apps" },
-      { label: "Certifications", href: "#certifications" },
-      { label: "Contact",        href: "#contact" },
+      { label: "About",    href: "#about" },
+      { label: "Results",  href: "#results" },
+      { label: "Services", href: "#services" },
+      { label: "Products", href: "#apps" },
+      { label: "Contact",  href: "#contact" },
     ],
   },
 
@@ -216,19 +215,6 @@ const SITE_CONTENT = {
         ],
         ctaLabel: "Try live demo →",
       },
-    ],
-  },
-
-  /* ---- CERTIFICATIONS ----------------------------------------------------- */
-  certifications: {
-    heading: "Certifications",
-    subheading: "Continuously sharpening the craft.",
-    items: [
-      { name: "Google Ads Search Certification",            issuer: "Skillshop" },
-      { name: "Google Ads Display Certification",           issuer: "Skillshop" },
-      { name: "Google Ads Shopping Certification",          issuer: "Skillshop" },
-      { name: "Google Ads Video (YouTube) Certification",   issuer: "Skillshop" },
-      { name: "Advanced Google Ads & Direct Response",      issuer: "Udemy"     },
     ],
   },
 

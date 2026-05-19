@@ -41,8 +41,8 @@ cards are clickable — they take visitors into the matching case study page.
 
 ## Updating content
 
-All site copy — headings, metrics, job history, services, certifications,
-contact info — lives in [`content.js`](content.js). To update anything visible
+All site copy — headings, metrics, job history, services, contact info, and
+case studies — lives in [`content.js`](content.js). To update anything visible
 on the site, open that file, edit the relevant section, save, refresh the
 browser.
 
@@ -63,7 +63,6 @@ Common edits:
 | A job / agency role         | `results.cards`                   |
 | Services offered            | `services.items`                  |
 | Your process steps          | `methodology.steps`               |
-| Certifications              | `certifications.items`            |
 | Tools / platforms list      | `tools.items`                     |
 | Email / phone / location    | `contact.email`, `contact.phone`, `contact.location` |
 | LinkedIn URL                | `contact.linkedin`                |

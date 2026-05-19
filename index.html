@@ -141,18 +141,6 @@
       </div>
     </section>
 
-    <!-- ==================== CERTIFICATIONS ==================== -->
-    <section class="certifications" id="certifications">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Credentials</span>
-          <h2 data-content="certifications.heading"></h2>
-          <p class="subheading" data-content="certifications.subheading"></p>
-        </div>
-        <div class="certs-grid reveal" data-content="certifications.items"></div>
-      </div>
-    </section>
-
     <!-- ==================== TOOLS ==================== -->
     <section class="tools" aria-label="Tools and platforms">
       <div class="container">
@@ -301,16 +289,6 @@
               <p>${escape(s.description)}</p>
             </article>`).join(""),
 
-        "certifications.items": (items) =>
-          items.map(c => `
-            <div class="cert">
-              <span class="badge" aria-hidden="true">${initials(c.issuer)}</span>
-              <div class="body">
-                <strong>${escape(c.name)}</strong>
-                <span>${escape(c.issuer)}</span>
-              </div>
-            </div>`).join(""),
-
         "tools.items": (items) =>
           items.map(t => `<span class="tool-chip">${escape(t)}</span>`).join(""),
 
@@ -413,9 +391,6 @@
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;")
           .replace(/"/g, "&quot;");
-      }
-      function initials(s) {
-        return String(s).split(/\s+/).map(w => w[0]).join("").slice(0, 2).toUpperCase();
       }
       function setMeta(name, value) {
         let el = document.querySelector(`meta[name="${name}"]`);
