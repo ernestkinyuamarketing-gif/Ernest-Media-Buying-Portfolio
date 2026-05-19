@@ -165,42 +165,27 @@
           <p class="subheading" data-content="contact.subheading"></p>
         </div>
 
-        <div class="contact-grid">
-          <div class="contact-details reveal">
-            <ul>
-              <li><span class="ic">📧</span><a data-content-href="contact.emailHref" data-content="contact.email"></a></li>
-              <li><span class="ic">📱</span><a data-content-href="contact.phoneHref" data-content="contact.phone"></a></li>
-              <li><span class="ic">📍</span><span data-content="contact.location"></span></li>
-              <li><span class="ic">💼</span><a data-content-href="contact.linkedin" target="_blank" rel="noopener">LinkedIn Profile</a></li>
-            </ul>
+        <div class="contact-cards reveal">
+          <a class="contact-card" data-content-href="contact.emailHref">
+            <span class="contact-card__icon" aria-hidden="true">📧</span>
+            <span class="contact-card__label">Email</span>
+            <span class="contact-card__value" data-content="contact.email"></span>
+          </a>
+          <a class="contact-card" data-content-href="contact.phoneHref">
+            <span class="contact-card__icon" aria-hidden="true">📱</span>
+            <span class="contact-card__label">Phone</span>
+            <span class="contact-card__value" data-content="contact.phone"></span>
+          </a>
+          <a class="contact-card" data-content-href="contact.linkedin" target="_blank" rel="noopener">
+            <span class="contact-card__icon" aria-hidden="true">💼</span>
+            <span class="contact-card__label">LinkedIn</span>
+            <span class="contact-card__value">View profile</span>
+          </a>
+          <div class="contact-card contact-card--static">
+            <span class="contact-card__icon" aria-hidden="true">📍</span>
+            <span class="contact-card__label">Location</span>
+            <span class="contact-card__value" data-content="contact.location"></span>
           </div>
-
-          <form class="contact-form reveal"
-                name="contact"
-                method="POST"
-                action="/thank-you"
-                data-netlify="true"
-                netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact" />
-            <p class="sr-only">
-              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-            </p>
-
-            <div>
-              <label for="cf-name" data-content="contact.form.nameLabel"></label>
-              <input id="cf-name" name="name" type="text" required autocomplete="name" />
-            </div>
-            <div>
-              <label for="cf-email" data-content="contact.form.emailLabel"></label>
-              <input id="cf-email" name="email" type="email" required autocomplete="email" />
-            </div>
-            <div>
-              <label for="cf-message" data-content="contact.form.messageLabel"></label>
-              <textarea id="cf-message" name="message" required></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit" data-content="contact.form.submitLabel"></button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
         </div>
       </div>
     </section>
@@ -387,17 +372,6 @@
         });
       }, { threshold: 0.12 });
       document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-      /* ----- Contact form (Netlify-enhanced UX) ----- */
-      const form = document.querySelector(".contact-form");
-      const status = form?.querySelector(".form-status");
-      form?.addEventListener("submit", (e) => {
-        // Let Netlify handle it on production; on local file:// give friendly feedback.
-        if (location.protocol === "file:") {
-          e.preventDefault();
-          if (status) status.textContent = "Form submission requires deployment (Netlify). Looks good locally!";
-        }
-      });
 
       /* ----- Helpers ----- */
       function escape(s) {

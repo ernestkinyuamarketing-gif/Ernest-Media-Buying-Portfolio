@@ -217,12 +217,6 @@ const SITE_CONTENT = {
     phone:    "+254 720 262 499",
     location: "Nairobi, Kenya",
     linkedin: "https://www.linkedin.com/in/ernest-mutwiri-5393003a9",
-    form: {
-      nameLabel:    "Your name",
-      emailLabel:   "Your email",
-      messageLabel: "How can I help?",
-      submitLabel:  "Send message",
-    },
   },
 
   /* ---- FOOTER ------------------------------------------------------------- */
