@@ -89,9 +89,6 @@ study, fill in:
 Anything wrapped in `**double asterisks**` becomes **bold** — use this to
 highlight metrics in the challenge text and approach bullets.
 
-Placeholders are marked `[FILL IN: ...]` in the Meta and Bing sections —
-replace them with your real numbers and stories before sharing the URLs.
-
 ## Running locally
 
 This is a static site — no build step.

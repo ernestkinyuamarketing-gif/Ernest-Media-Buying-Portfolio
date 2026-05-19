@@ -273,7 +273,6 @@ const SITE_CONTENT = {
   /* ==========================================================================
      CASE STUDIES — content for the dedicated channel pages
      (google-ads.html, meta-ads.html, bing-ads.html)
-     Replace placeholders in [SQUARE BRACKETS] with your real numbers & stories.
      ========================================================================== */
   caseStudies: {
 
@@ -469,9 +468,9 @@ const SITE_CONTENT = {
             "Tuned bids per market separately — what works in the US doesn't always work in AU/NZ.",
           ],
           results: [
-            { value: "-25%", label: "Avg. CPC vs. equivalent Google campaigns" },
-            { value: "4",    label: "Markets managed" },
-            { value: "[+XX%]", label: "Incremental revenue (fill in real %)" },
+            { value: "-25%",   label: "Avg. CPC vs. equivalent Google campaigns" },
+            { value: "4",      label: "Markets managed (US, UK, AU, NZ)" },
+            { value: "Cleaner", label: "Account hygiene: dedup keywords + negatives" },
           ],
         },
         {
