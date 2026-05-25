@@ -9,9 +9,9 @@ const SITE_CONTENT = {
 
   /* ---- SEO / META --------------------------------------------------------- */
   meta: {
-    title: "Ernest Mutwiri — Performance Media Buyer | Google, Meta & Bing Ads",
+    title: "Ernest Mutwiri — Paid Media Specialist | Google, Meta & Bing Ads",
     description:
-      "Performance Media Buyer with 3+ years scaling e-commerce and lead-generation brands across Google, Meta, and Bing Ads. $2M+ in tracked revenue and qualified leads delivered.",
+      "Paid Media Specialist with 3+ years scaling e-commerce and lead-generation brands across Google, Meta, and Bing Ads. $2M+ in tracked revenue and qualified leads delivered.",
     ogImage: "assets/og-image.jpg",
     siteUrl: "https://ernest-media-buying.netlify.app",
     author: "Ernest Mutwiri",
@@ -31,13 +31,13 @@ const SITE_CONTENT = {
 
   /* ---- HERO --------------------------------------------------------------- */
   hero: {
-    eyebrow: "Performance Media Buyer · Nairobi, Kenya",
-    heading: "Profitable Paid Media for E-commerce & Lead-Gen Brands",
+    eyebrow: "Paid Media Specialist",
+    heading: "*Profitable* Paid Media for E-commerce & Lead-Gen Brands",
     subheading:
       "3+ years scaling Google, Meta & Bing Ads past **$100K/month** — **$2M+ in tracked revenue** and qualified leads delivered.",
     ctaPrimary:   { label: "View My Results", href: "#results" },
     ctaSecondary: { label: "Get In Touch",    href: "#contact" },
-    profileImage: { src: "assets/profile.jpg", alt: "Ernest Mutwiri, Performance Media Buyer" },
+    profileImage: { src: "assets/profile.jpg", alt: "Ernest Mutwiri, Paid Media Specialist" },
   },
 
   /* ---- METRICS BAR -------------------------------------------------------- */
@@ -253,7 +253,28 @@ const SITE_CONTENT = {
   /* ---- FOOTER ------------------------------------------------------------- */
   footer: {
     copyright: "© 2026 Ernest Mutwiri. All rights reserved.",
-    note:      "Built with care in Nairobi, Kenya.",
+    note:      "Nairobi, Kenya",
+  },
+
+  /* ---- WHY HIRE ME -------------------------------------------------------- */
+  whyHireMe: {
+    eyebrow: "Why work with me",
+    heading: "What you actually get",
+    subheading: "No agency overhead. No junior account manager handoff. Just direct work from the person actually running your account.",
+    items: [
+      { icon: "users",      title: "You work with me, not an account team",
+        body: "One owner, no handoffs, no 'let me check with my team and get back to you.' Direct line to the specialist actually running the account." },
+      { icon: "chart",      title: "3+ years scaling $100K+/month accounts",
+        body: "$2M+ in tracked revenue across e-commerce and lead-gen. Not a generalist freelancer — a specialist in performance media." },
+      { icon: "compass",    title: "Weekly reports with no fluff",
+        body: "The dashboard, the numbers, the decisions made, and the next moves. Not screenshots of impressions charts." },
+      { icon: "spark",      title: "Hands-on the platform, every day",
+        body: "Daily account checks, weekly optimization sprints, monthly strategic reviews. Not a 'set-and-forget' approach." },
+      { icon: "shield",     title: "Transparent on what's working — and what isn't",
+        body: "If a test fails, you'll know it. If a campaign isn't ready to scale, I'll say so. No metric-massaging." },
+      { icon: "target",     title: "Fast turnaround on launches and pivots",
+        body: "New campaigns live in days, not weeks. When the market shifts, the account shifts with it." },
+    ],
   },
 
   /* ==========================================================================
@@ -272,9 +293,13 @@ const SITE_CONTENT = {
         title:       "Google Ads Case Studies — Ernest Mutwiri",
         description: "Real Google Ads case studies: scaling e-commerce accounts from $40K to $200K/month, 40–70% ROAS lifts, Performance Max, Shopping, and Search.",
       },
-      eyebrow:    "Case Studies · Google Ads",
-      heading:    "Profitable Google Ads at Scale",
-      subheading: "Search, Shopping, Performance Max, YouTube & Display campaigns that turn ad budgets into predictable revenue.",
+      eyebrow:       "Google Ads",
+      heading:       "Profitable Google Ads at Scale",
+      headingAccent: "Scale",
+      subheading:    "Search, Shopping, Performance Max, YouTube & Display campaigns that turn ad budgets into predictable revenue.",
+      studiesEyebrow:    "Selected work",
+      studiesHeading:    "Recent Google Ads case studies",
+      studiesSubheading: "Real client accounts, real numbers. Click any card to read the full story.",
       headlineMetrics: [
         { value: "$2M+",   label: "Revenue Generated" },
         { value: "$100K+", label: "Monthly Spend Managed" },
@@ -409,9 +434,13 @@ const SITE_CONTENT = {
         title:       "Meta Ads Case Studies — Ernest Mutwiri",
         description: "Meta Ads case studies covering Facebook & Instagram campaigns, creative testing systems, audience strategy, and full-funnel scaling for e-commerce brands.",
       },
-      eyebrow:    "Case Studies · Meta Ads",
-      heading:    "Meta Ads Built for E-commerce Margins",
-      subheading: "Full-funnel Facebook & Instagram campaigns — prospecting, retargeting, retention — with disciplined creative testing and a clean iOS-resilient signal stack.",
+      eyebrow:       "Meta Ads",
+      heading:       "Meta Ads Built for E-commerce Margins",
+      headingAccent: "Margins",
+      subheading:    "Full-funnel Facebook & Instagram campaigns — prospecting, retargeting, retention — with disciplined creative testing and a clean iOS-resilient signal stack.",
+      studiesEyebrow:    "Selected work",
+      studiesHeading:    "Recent Meta Ads case studies",
+      studiesSubheading: "Real client accounts, real numbers. Click any card to read the full story.",
       headlineMetrics: [
         { value: "Shopify-Native", label: "E-commerce focus" },
         { value: "Pixel + CAPI",   label: "iOS-resilient tracking" },
@@ -532,9 +561,13 @@ const SITE_CONTENT = {
         title:       "Bing Ads Case Studies — Ernest Mutwiri",
         description: "Microsoft Advertising (Bing Ads) case studies: multi-country Search campaigns, lower CPCs than Google, and profitable secondary-channel scaling.",
       },
-      eyebrow:    "Case Studies · Bing Ads",
-      heading:    "Bing Ads as a Profitable Secondary Channel",
-      subheading: "Multi-market Search campaign management on Microsoft Ads — lower CPCs, less competition, real incremental revenue.",
+      eyebrow:       "Bing Ads",
+      heading:       "Bing Ads as a Profitable Secondary Channel",
+      headingAccent: "Profitable",
+      subheading:    "Multi-market Search campaign management on Microsoft Ads — lower CPCs, less competition, real incremental revenue.",
+      studiesEyebrow:    "Selected work",
+      studiesHeading:    "Recent Bing Ads case studies",
+      studiesSubheading: "Real client accounts, real numbers. Click any card to read the full story.",
       headlineMetrics: [
         { value: "4",     label: "Markets (US/UK/AU/NZ)" },
         { value: "-25%",  label: "Avg. CPC vs. Google" },

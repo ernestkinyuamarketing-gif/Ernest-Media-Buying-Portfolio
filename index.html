@@ -6,13 +6,13 @@
   <meta name="theme-color" content="#0A1929" />
 
   <!-- Primary SEO -->
-  <title>Ernest Mutwiri — Performance Media Buyer | Google, Meta &amp; Bing Ads</title>
-  <meta name="description" content="Performance Media Buyer with 3+ years scaling e-commerce brands across Google, Meta, and Bing Ads. $2M+ in tracked revenue generated." />
+  <title>Ernest Mutwiri — Paid Media Specialist | Google, Meta &amp; Bing Ads</title>
+  <meta name="description" content="Paid Media Specialist with 3+ years scaling e-commerce brands across Google, Meta, and Bing Ads. $2M+ in tracked revenue generated." />
   <meta name="author" content="Ernest Mutwiri" />
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ernest Mutwiri — Performance Media Buyer" />
+  <meta property="og:title" content="Ernest Mutwiri — Paid Media Specialist" />
   <meta property="og:description" content="3+ years scaling e-commerce brands across Google, Meta & Bing Ads. $2M+ in tracked revenue." />
   <meta property="og:image" content="assets/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -23,7 +23,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -102,6 +102,18 @@
           <p class="subheading" data-content="results.subheading"></p>
         </div>
         <div class="results-grid reveal" data-content="results.cards"></div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY HIRE ME ==================== -->
+    <section class="why-hire-me" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-content="whyHireMe.eyebrow"></span>
+          <h2 data-content="whyHireMe.heading"></h2>
+          <p class="subheading" data-content="whyHireMe.subheading"></p>
+        </div>
+        <div class="why-grid reveal" data-content="whyHireMe.items"></div>
       </div>
     </section>
 
@@ -203,6 +215,7 @@
   <script type="application/ld+json" id="ld-person"></script>
 
   <!-- ==================== CONTENT + RENDER ==================== -->
+  <script src="icons.js"></script>
   <script src="content.js"></script>
   <script>
     /* -------------------------------------------------------------------------
@@ -233,8 +246,15 @@
       const fmt = (s) =>
         String(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 
+      // Heading-only accent: *word* -> <em class="hero-accent">word</em>
+      // (Applied after **bold** so the patterns don't collide.)
+      const fmtHeading = (s) =>
+        fmt(escape(s)).replace(/\*(.+?)\*/g, '<em class="hero-accent">$1</em>');
+
       // Renderers for collections we don't want to express as raw strings
       const RENDERERS = {
+        "hero.heading": (s) => fmtHeading(s),
+
         "nav.links": (links) =>
           links.map(l => `<li><a href="${l.href}">${escape(l.label)}</a></li>`).join(""),
 
@@ -291,6 +311,14 @@
 
         "tools.items": (items) =>
           items.map(t => `<span class="tool-chip">${escape(t)}</span>`).join(""),
+
+        "whyHireMe.items": (items) =>
+          items.map(it => `
+            <article class="why-card">
+              <span class="why-card__icon" aria-hidden="true">${(window.renderIcon ? window.renderIcon(it.icon) : "")}</span>
+              <h3>${fmt(escape(it.title))}</h3>
+              <p>${fmt(escape(it.body))}</p>
+            </article>`).join(""),
 
         "apps.items": (items) =>
           items.map(a => `

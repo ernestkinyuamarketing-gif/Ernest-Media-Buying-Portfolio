@@ -25,19 +25,8 @@
   const fmt = (s) =>
     String(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 
-  /* ----- Inline SVG icon library (used by the "How I Fix" section) ----- */
-  const SVG_ICONS = {
-    foundation: `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="18" width="22" height="6" rx="1.5"/><rect x="6" y="11" width="16" height="5" rx="1.5"/><rect x="9" y="4" width="10" height="5" rx="1.5"/></svg>`,
-    shield:     `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3 L24 6 V14 C24 19.5 19 24 14 25 C9 24 4 19.5 4 14 V6 L14 3 Z"/><path d="M10 14 L13 17 L18 11"/></svg>`,
-    target:     `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><circle cx="14" cy="14" r="6"/><circle cx="14" cy="14" r="2" fill="currentColor"/></svg>`,
-    layers:     `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4 L24 10 L14 16 L4 10 Z"/><path d="M4 14 L14 20 L24 14"/><path d="M4 18 L14 24 L24 18"/></svg>`,
-    compass:    `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M18 10 L14 19 L10 18 L19 14 Z" fill="currentColor"/></svg>`,
-    chart:      `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 24 H24"/><rect x="6" y="16" width="3.5" height="6" rx="0.5"/><rect x="12.25" y="11" width="3.5" height="11" rx="0.5"/><rect x="18.5" y="5" width="3.5" height="17" rx="0.5"/></svg>`,
-    spark:      `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3 L16 11 L24 14 L16 17 L14 25 L12 17 L4 14 L12 11 Z" fill="currentColor" fill-opacity="0.18"/></svg>`,
-    users:      `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="10" r="4"/><path d="M3 23 C3 18.5 7 16 11 16 C15 16 19 18.5 19 23"/><circle cx="20" cy="8" r="3"/><path d="M17 16 C19.5 15 25 16 25 21"/></svg>`,
-    dollar:     `<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M17 10 C16 8.5 14.5 8 13 8 C11 8 10 9 10 10.5 C10 12 11 12.5 13.5 13.2 C16.5 14 17.5 14.5 17.5 16 C17.5 17.5 16.5 18.5 14 18.5 C12 18.5 10.5 17.5 9.5 16"/><path d="M14 6 V8"/><path d="M14 18.5 V20.5"/></svg>`,
-  };
-  const renderIcon = (key) => SVG_ICONS[key] || SVG_ICONS.spark;
+  /* ----- Inline SVG icons come from icons.js (window.SVG_ICONS / window.renderIcon) ----- */
+  const renderIcon = window.renderIcon || (() => "");
 
   const setText = (sel, value) => {
     document.querySelectorAll(sel).forEach(el => { el.innerHTML = fmt(escape(value)); });
@@ -63,8 +52,19 @@
 
   /* ----- Hero ----- */
   setText("[data-cs='eyebrow']",    cs.eyebrow);
-  setText("[data-cs='heading']",    cs.heading);
   setText("[data-cs='subheading']", cs.subheading);
+
+  // Heading: wrap headingAccent (if present) in <em class="hero-accent"> for serif italic gold styling
+  const headingEl = document.querySelector("[data-cs='heading']");
+  if (headingEl) {
+    const safeHeading = escape(cs.heading);
+    if (cs.headingAccent) {
+      const safeAccent = escape(cs.headingAccent);
+      headingEl.innerHTML = safeHeading.replace(safeAccent, `<em class="hero-accent">${safeAccent}</em>`);
+    } else {
+      headingEl.innerHTML = safeHeading;
+    }
+  }
 
   const metricsEl = document.querySelector("[data-cs='headlineMetrics']");
   if (metricsEl) {
@@ -114,47 +114,88 @@
     }
   }
 
-  /* ----- Studies (the main content) ----- */
+  /* ----- Studies section head ----- */
+  setText("[data-cs='studiesEyebrow']",    cs.studiesEyebrow || "Selected work");
+  setText("[data-cs='studiesHeading']",    cs.studiesHeading || "Case studies");
+  setText("[data-cs='studiesSubheading']", cs.studiesSubheading || "");
+
+  /* ----- Studies — compact preview cards that expand in-place on click ----- */
   const studiesEl = document.querySelector("[data-cs='studies']");
   if (studiesEl) {
-    studiesEl.innerHTML = cs.studies.map((s, i) => `
-      <article class="cs-card reveal">
-        <header class="cs-card-head">
-          <span class="cs-num" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
-          <div>
-            <h2>${fmt(escape(s.title))}</h2>
-            <p class="cs-meta">${escape(s.client)} · ${escape(s.period)}</p>
-          </div>
-        </header>
+    studiesEl.classList.add("cs-studies-grid");
+    studiesEl.innerHTML = cs.studies.map((s, i) => {
+      const topResults = (s.results || []).slice(0, 3);
+      return `
+        <article class="cs-card-compact reveal" data-expanded="false">
+          <header class="cs-card-compact__head">
+            <span class="cs-card-compact__num" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+            <h3 class="cs-card-compact__title">${fmt(escape(s.title))}</h3>
+          </header>
+          <p class="cs-card-compact__meta">${escape(s.client)} · ${escape(s.period)}</p>
+          <p class="cs-card-compact__challenge">${fmt(escape(s.challenge))}</p>
 
-        <div class="cs-body">
-          <div class="cs-block">
-            <h3>The Challenge</h3>
-            <p>${fmt(escape(s.challenge))}</p>
+          <div class="cs-card-compact__expanded">
+            <h4 class="cs-card-compact__h4">The Approach</h4>
+            <ul class="cs-card-compact__approach">
+              ${s.approach.map(a => `<li>${fmt(escape(a))}</li>`).join("")}
+            </ul>
+            <h4 class="cs-card-compact__h4">The Results</h4>
+            <div class="cs-card-compact__metrics cs-card-compact__metrics--full">
+              ${s.results.map(r => `
+                <div class="cs-card-compact__metric">
+                  <span class="value">${escape(r.value)}</span>
+                  <span class="label">${escape(r.label)}</span>
+                </div>`).join("")}
+            </div>
           </div>
-          <div class="cs-block">
-            <h3>The Approach</h3>
-            <ul>${s.approach.map(a => `<li>${fmt(escape(a))}</li>`).join("")}</ul>
-          </div>
-        </div>
 
-        <div class="cs-results">
-          <h3>The Results</h3>
-          <div class="cs-result-grid">
-            ${s.results.map(r => `
-              <div class="cs-result">
+          <div class="cs-card-compact__metrics cs-card-compact__metrics--preview">
+            ${topResults.map(r => `
+              <div class="cs-card-compact__metric">
                 <span class="value">${escape(r.value)}</span>
                 <span class="label">${escape(r.label)}</span>
               </div>`).join("")}
           </div>
-        </div>
 
-        ${s.screenshot ? `
-          <figure class="cs-screenshot">
-            <img src="${escape(s.screenshot)}" alt="${escape(s.title)} screenshot" loading="lazy" />
-          </figure>` : ""}
-      </article>
-    `).join("");
+          <button type="button" class="cs-card-compact__toggle" aria-expanded="false">
+            <span class="cs-card-compact__toggle-label">Read more</span>
+            <span class="cs-card-compact__toggle-icon" aria-hidden="true">↓</span>
+          </button>
+        </article>
+      `;
+    }).join("");
+
+    // Click handler — toggles a single card's expanded state without touching siblings
+    studiesEl.querySelectorAll(".cs-card-compact__toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".cs-card-compact");
+        if (!card) return;
+        const expanded = card.getAttribute("data-expanded") === "true";
+        const next = !expanded;
+        card.setAttribute("data-expanded", String(next));
+        btn.setAttribute("aria-expanded", String(next));
+        btn.querySelector(".cs-card-compact__toggle-label").textContent = next ? "Show less" : "Read more";
+        btn.querySelector(".cs-card-compact__toggle-icon").textContent = next ? "↑" : "↓";
+      });
+    });
+  }
+
+  /* ----- Why Hire Me (shared content from SITE_CONTENT.whyHireMe) ----- */
+  if (C.whyHireMe) {
+    setText("[data-cs='whyEyebrow']",    C.whyHireMe.eyebrow);
+    setText("[data-cs='whyHeading']",    C.whyHireMe.heading);
+    setText("[data-cs='whySubheading']", C.whyHireMe.subheading);
+
+    const whyEl = document.querySelector("[data-cs='whyItems']");
+    if (whyEl) {
+      whyEl.innerHTML = C.whyHireMe.items.map(it => `
+        <article class="why-card">
+          <span class="why-card__icon">${renderIcon(it.icon)}</span>
+          <h3>${fmt(escape(it.title))}</h3>
+          <p>${fmt(escape(it.body))}</p>
+        </article>
+      `).join("");
+    }
   }
 
   /* ----- Tools section ----- */
